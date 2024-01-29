@@ -13,12 +13,19 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const res = ctx.getResponse<Response>();
     const req = ctx.getRequest<Request>();
     const status = exception.getStatus();
+    const httpMethod = req.method;
+    const path = req.url;
+    const message =
+      typeof exception.getResponse() !== 'string'
+        ? exception.getResponse().toString()
+        : exception.getResponse();
 
     const exceptionThrown = {
       status,
+      message,
       timestamp: new Date().toISOString(),
-      path: req.url,
-      method: req.method,
+      path,
+      method: httpMethod,
     };
 
     console.error('[EXCEPTION THROWN]');
