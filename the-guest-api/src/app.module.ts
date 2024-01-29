@@ -7,6 +7,7 @@ import { MeetingsModule } from './meetings/meetings.module';
 import { RoomsModule } from './rooms/rooms.module';
 import { CustomersModule } from './customers/customers.module';
 import { MeetingParticipantsModule } from './meeting-participants/meeting-participants.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { MeetingParticipantsModule } from './meeting-participants/meeting-partic
     RoomsModule,
     CustomersModule,
     MeetingParticipantsModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
